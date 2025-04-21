@@ -9,6 +9,7 @@ api_key = os.getenv("GEMINI_API_KEY")
 
 app = Flask(__name__)
 
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     audio_url = None
