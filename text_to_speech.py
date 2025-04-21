@@ -2,7 +2,8 @@ import os
 from google.cloud import texttospeech
 
 # Set your credentials
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join("credentials", "get_credentials.json")
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials/get_credentials.json"
+
 
 def text_to_audio_google_cloud(text, filename="poem.mp3"):
     client = texttospeech.TextToSpeechClient()
