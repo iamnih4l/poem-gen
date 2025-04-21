@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Poem Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        textarea, input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 30px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 20px;
+            white-space: pre-wrap;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate a Poem from Your Prompt</h1>
+    <form method="POST">
+        <input type="text" name="prompt" placeholder="Enter a theme or idea..." required><br>
+        <button type="submit">Generate Poem & Audio</button>
+    </form>
+
+    {% if poem %}
+    <div class="output">
+        <h2>Your Poem</h2>
+        <pre>{{ poem }}</pre>
+    </div>
+    {% endif %}
+
+    {% if audio_url %}
+    <div>
+        <h3>Listen to the Poem</h3>
+        <audio controls>
+            <source src="{{ audio_url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    {% endif %}
+</body>
+</html>
